@@ -10,7 +10,7 @@ CREATE TABLE `data_platform_bill_of_material_item_data`
     `ComponentScrapInPercent`         int(5) DEFAULT NULL,
     `ItemIsMarkedForDeletion`         tinyint(1) DEFAULT NULL,
 
-    PRIMARY KEY (`BusinessPartner`, `BillOfMaterial`, `BillOfMaterialItem`),
+    PRIMARY KEY (`ProductionPlantBusinessPartner`, `BillOfMaterial`, `BillOfMaterialItem`),
     
     CONSTRAINT `DataPlatformBillOfMaterialItemData_fk` FOREIGN KEY (`ProductionPlantBusinessPartner`, `BillOfMaterial`) REFERENCES `data_platform_bill_of_material_header_data` (`ProductionPlantBusinessPartner`, `BillOfMaterial`)
     

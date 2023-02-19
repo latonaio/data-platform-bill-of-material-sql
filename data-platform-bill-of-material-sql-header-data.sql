@@ -8,7 +8,7 @@ CREATE TABLE `data_platform_bill_of_material_header_data`
   `BOMAlternativeText`                        varchar(200) DEFAULT NULL,
   `HeaderValidityStartDate`                   date DEFAULT NULL,
   `HeaderValidityEndDate`                     date DEFAULT NULL,
-  `MinumumDeliveryQuantityInBaseUnit`         float(15) DEFAULT NULL,
+  `MinimumDeliveryQuantityInBaseUnit`         float(15) DEFAULT NULL,
   `MaximumDeliveryLotSizeQuantityInBaseUnit`  float(15) DEFAULT NULL,
   `BOMHeaderBaseUnit`                         varchar(3) DEFAULT NULL,
   `BOMHeaderQuantityInBaseUnit`               float(15) DEFAULT NULL,
