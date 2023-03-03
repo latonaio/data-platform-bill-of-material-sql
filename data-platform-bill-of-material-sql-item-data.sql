@@ -5,8 +5,8 @@ CREATE TABLE `data_platform_bill_of_material_item_data`
     `BillOfMaterialItem`              int(6) NOT NULL,
     `ItemValidityStartDate`           date DEFAULT NULL,
     `ItemValidityEndDate`             date DEFAULT NULL,
-    `BillOfMaterialComponentProduct`  varchar(40) DEFAULT NULL,
-    `BillOfMaterialItemQuantity`      float(15) DEFAULT NULL,
+    `BillOfMaterialComponentProduct`  varchar(40) NOT NULL,
+    `BillOfMaterialItemQuantity`      float(15) NOT NULL,
     `ComponentScrapInPercent`         int(5) DEFAULT NULL,
     `ItemIsMarkedForDeletion`         tinyint(1) DEFAULT NULL,
 

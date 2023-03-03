@@ -17,11 +17,11 @@ CREATE TABLE `data_platform_bill_of_material_header_data`
   `BillOfMaterialHeaderText`                  varchar(200) DEFAULT NULL,
   `HeaderIsMarkedForDeletion`                 tinyint(1) DEFAULT NULL,
   
-    PRIMARY KEY (`ProductionPlantBusinessPartner`, `BillOfMaterial`)
+    PRIMARY KEY (`ProductionPlantBusinessPartner`, `BillOfMaterial`),
     
-    CONSTRAINT `DataPlatformBillOfMaterialHeaderDataProductionPlantBusinessPartner_fk` FOREIGN KEY (`ProductionPlantBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
+    CONSTRAINT `DataPlatformBillOfMaterialHeaderDataProductionPlantBP_fk` FOREIGN KEY (`ProductionPlantBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DataPlatformBillOfMaterialHeaderDataBusinessProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_master_general_data` (`Product`),
-    CONSTRAINT `DataPlatformBillOfMaterialHeaderDataPlant_fk` FOREIGN KEY (`ProductionPlant`) REFERENCES `data_platform_plant_general_data` (`Plant`)
+    CONSTRAINT `DataPlatformBillOfMaterialHeaderDataPlant_fk` FOREIGN KEY (`ProductionPlantBusinessPartner`, `ProductionPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
     
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
