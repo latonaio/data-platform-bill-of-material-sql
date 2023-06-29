@@ -12,10 +12,10 @@ CREATE TABLE `data_platform_bill_of_material_item_data`
     `ComponentProduct`                                 varchar(40) NOT NULL,
     `ComponentProductBuyer`                            int(12) NOT NULL,
     `ComponentProductSeller`                           int(12) NOT NULL,
-    `ComponentProductDeliverFromParty`                 int(12) NOT NULL,
-    `ComponentProductDeliverFromPlant`                 varchar(4) NOT NULL,
     `ComponentProductDeliverToParty`                   int(12) NOT NULL,
     `ComponentProductDeliverToPlant`                   varchar(4) NOT NULL,
+    `ComponentProductDeliverFromParty`                 int(12) NOT NULL,
+    `ComponentProductDeliverFromPlant`                 varchar(4) NOT NULL,
     `StockConfirmationBusinessPartner`                 int(12) NOT NULL,
     `StockConfirmationPlant`                           varchar(4) NOT NULL,
     `ComponentProductStandardQuantityInBaseUnuit`      float(15) NOT NULL,
@@ -34,10 +34,10 @@ CREATE TABLE `data_platform_bill_of_material_item_data`
     PRIMARY KEY (`BillOfMaterial`, `BillOfMaterialItem`),
     
     CONSTRAINT `DPFMBOMItemData_fk` FOREIGN KEY (`BillOfMaterial`) REFERENCES `data_platform_bill_of_material_header_data` (`BillOfMaterial`),
-    CONSTRAINT `DPFMBOMItemDataSCRID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `ComponentProductBuyer`, `ComponentProductSeller`) REFERENCES `data_platform_supply_chain_relationship_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
-    CONSTRAINT `DPFMBOMItemDataSCRDeliveryID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `ComponentProductBuyer`, `ComponentProductSeller`, `ComponentProductDeliverToParty`, `ComponentProductDeliverFromParty`) REFERENCES `data_platform_supply_chain_relationship_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
-    CONSTRAINT `DPFMBOMItemDataSCRDeliveryPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `ComponentProductBuyer`, `ComponentProductSeller`, `ComponentProductDeliverToParty`, `ComponentProductDeliverFromParty`, `ComponentProductDeliverToPlant`, `ComponentProductDeliverFromPlant`, `ComponentProduct`) REFERENCES `data_platform_supply_chain_relationship_delivery_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
-    CONSTRAINT `DPFMBOMItemDataSCRStockConfPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipStockConfPlantID`, `ComponentProductBuyer`, `ComponentProductSeller`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`, `ComponentProduct`) REFERENCES `data_platform_supply_chain_relationship_production_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`),
+    CONSTRAINT `DPFMBOMItemDataSCRID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `ComponentProductBuyer`, `ComponentProductSeller`) REFERENCES `data_platform_scr_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
+    CONSTRAINT `DPFMBOMItemDataSCRDeliveryID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `ComponentProductBuyer`, `ComponentProductSeller`, `ComponentProductDeliverToParty`, `ComponentProductDeliverFromParty`) REFERENCES `data_platform_scr_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
+    CONSTRAINT `DPFMBOMItemDataSCRDeliveryPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `ComponentProductBuyer`, `ComponentProductSeller`, `ComponentProductDeliverToParty`, `ComponentProductDeliverFromParty`, `ComponentProductDeliverToPlant`, `ComponentProductDeliverFromPlant`, `ComponentProduct`) REFERENCES `data_platform_scr_delivery_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
+    CONSTRAINT `DPFMBOMItemDataSCRStockConfPlantIDProduct_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipStockConfPlantID`, `ComponentProductBuyer`, `ComponentProductSeller`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`, `ComponentProduct`) REFERENCES `data_platform_scr_production_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`, `Product`),
     CONSTRAINT `DPFMBOMItemOperationComponentDataComponentProductBaseUnit_fk` FOREIGN KEY (`ComponentProductBaseUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
     CONSTRAINT `DPFMBOMItemOperationComponentDataComponentProductDeliveryUnit_fk` FOREIGN KEY (`ComponentProductDeliveryUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
 
