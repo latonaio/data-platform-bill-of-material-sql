@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_bill_of_material_header_doc_data`
+CREATE TABLE `data_platform_bill_of_material_item_doc_data`
 (
   `BillOfMaterial`                 int(16) NOT NULL,
   `BillOfMaterialItem`             int(6) NOT NULL,
@@ -13,9 +13,9 @@ CREATE TABLE `data_platform_bill_of_material_header_doc_data`
  PRIMARY KEY (`BillOfMaterial`, `BillOfMaterialItem`, `DocType`, `DocVersionID`, `DocID`),
  
  CONSTRAINT `DataPlatformBillOfMaterialItemDocData_fk` FOREIGN KEY (`BillOfMaterial`) REFERENCES `data_platform_bill_of_material_header_data` (`BillOfMaterial`),
- CONSTRAINT `DataPlatformBillOfMaterialItemDocDataBillOfMaterialItem_fk` FOREIGN KEY (`BillOfMaterialItem`) REFERENCES `data_platform_bill_of_material_item_data` (`BillOfMaterialItem`),
+--  CONSTRAINT `DataPlatformBillOfMaterialItemDocDataBillOfMaterialItem_fk` FOREIGN KEY (`BillOfMaterialItem`) REFERENCES `data_platform_bill_of_material_item_data` (`BillOfMaterialItem`), too long
  CONSTRAINT `DataPlatformBillOfMaterialItemDocDataDocType_fk` FOREIGN KEY (`DocType`) REFERENCES `data_platform_doc_type_doc_type_data` (`DocType`),
- CONSTRAINT `DataPlatformBillOfMaterialItemDocDataDocIssuerBusinessPartner_fk` FOREIGN KEY (`DocIssuerBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
+--  CONSTRAINT `DataPlatformBillOfMaterialItemDocDataDocIssuerBusinessPartner_fk` FOREIGN KEY (`DocIssuerBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`) too long
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

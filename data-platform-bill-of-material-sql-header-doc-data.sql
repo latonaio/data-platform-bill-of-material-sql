@@ -13,7 +13,7 @@ CREATE TABLE `data_platform_bill_of_material_header_doc_data`
   
   CONSTRAINT `DataPlatformBillOfMaterialHeaderDocData_fk` FOREIGN KEY (`BillOfMaterial`) REFERENCES `data_platform_bill_of_material_header_data` (`BillOfMaterial`),
   CONSTRAINT `DataPlatformBillOfMaterialHeaderDocDataDocType_fk` FOREIGN KEY (`DocType`) REFERENCES `data_platform_doc_type_doc_type_data` (`DocType`),
-  CONSTRAINT `DataPlatformBillOfMaterialHeaderDocDataDocIssuerBusinessPartner_fk` FOREIGN KEY (`DocIssuerBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
+  -- CONSTRAINT `DataPlatformBillOfMaterialHeaderDocDataDocIssuerBusinessPartner_fk` FOREIGN KEY (`DocIssuerBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`) too long
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
